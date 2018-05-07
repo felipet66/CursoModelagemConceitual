@@ -8,8 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.felipeteles.cursomc.services.DBService;
-import com.felipeteles.cursomc.services.EmailService;
-import com.felipeteles.cursomc.services.MockEmailService;
 
 @Configuration
 @Profile("test")
