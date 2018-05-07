@@ -2,6 +2,9 @@ package com.felipeteles.cursomc.config;
 
 import java.text.ParseException;
 
+import com.felipeteles.cursomc.services.EmailService;
+import com.felipeteles.cursomc.services.SmtpEmailService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -22,10 +25,15 @@ public class DevConfig {
 	
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
-		if(!"create".equals(strategy)) {
-			return false;
-		}
+		//if(!"create".equals(strategy)) {
+		//	return false;
+		//}
 		dbService.instantiateTestDatabase();
 		return true;
+	}
+	
+	@Bean
+	public EmailService emailService() {
+		return new SmtpEmailService();
 	}
 }
